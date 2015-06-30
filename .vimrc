@@ -106,7 +106,7 @@ let g:syntastic_ignore_files = ['\.py$']
 
 " ESLint settings for Syntastic
 
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " CtrlP settings
 let g:ctrlp_map = '<c-p>'
