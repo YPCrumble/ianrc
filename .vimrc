@@ -73,6 +73,8 @@ set foldenable
 nnoremap j gj
 nnoremap k gk
 
+map <F4> :lclose<cr>
+
 nnoremap <CR> i<CR><Esc>
 
 map <down> 20j

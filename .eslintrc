@@ -2,7 +2,8 @@
     "parser": "babel-eslint",
     "env": {
         "browser": true,
-        "node": true
+        "node": true,
+        "jasmine": true
     },
     "settings": {
         "ecmascript": 6,
@@ -16,6 +17,7 @@
         "quotes": 0,
         "no-unused-vars": 1,
         "camelcase": 0,
-        "no-underscore-dangle": 0
+        "no-underscore-dangle": 0,
+        "curly": [1, "multi-line"]
     }
 }
