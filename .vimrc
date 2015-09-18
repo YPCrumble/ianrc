@@ -19,10 +19,11 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'mattn/emmet-vim'
 Plugin 'ervandew/supertab'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tomasr/molokai'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Raimondi/delimitMate'
@@ -42,21 +43,22 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-set tabstop=4
+set tabstop=2
+set shiftwidth=2
 set backspace=indent,eol,start
 set autoindent
 set copyindent
 set number
-set shiftwidth=4
 set showmatch
 set ignorecase
 set smartcase
-set expandtab
 set hlsearch
 set incsearch
 set wildignore=*.swp
 set visualbell
 set noerrorbells
+autocmd Filetype python setlocal expandtab shiftwidth=4 tabstop=4
+autocmd Filetype php setlocal expandtab
 
 set pastetoggle=<F3>
 
@@ -109,6 +111,8 @@ let g:syntastic_ignore_files = ['\.py$']
 " ESLint settings for Syntastic
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+" End Syntastic settings
 
 " CtrlP settings
 let g:ctrlp_map = '<c-p>'
