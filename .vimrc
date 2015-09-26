@@ -57,6 +57,7 @@ set incsearch
 set wildignore=*.swp
 set visualbell
 set noerrorbells
+set title
 autocmd Filetype python setlocal expandtab shiftwidth=4 tabstop=4
 autocmd Filetype php setlocal expandtab
 
