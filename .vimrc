@@ -17,8 +17,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'klen/python-mode'
 Plugin 'mattn/emmet-vim'
 Plugin 'ervandew/supertab'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -28,6 +28,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Raimondi/delimitMate'
 Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,6 +46,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 set tabstop=2
 set shiftwidth=2
+set expandtab
 set backspace=indent,eol,start
 set autoindent
 set copyindent
@@ -58,8 +60,7 @@ set wildignore=*.swp
 set visualbell
 set noerrorbells
 set title
-autocmd Filetype python setlocal expandtab shiftwidth=4 tabstop=4
-autocmd Filetype php setlocal expandtab
+autocmd Filetype python setlocal shiftwidth=4 tabstop=4
 
 set pastetoggle=<F3>
 
@@ -75,6 +76,9 @@ set foldenable
 "move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+
+  "use tab in normal mode to tab things.
+nnoremap <Tab> I<Tab><Esc>
 
 map <F4> :lclose<cr>
 
