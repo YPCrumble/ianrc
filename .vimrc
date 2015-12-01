@@ -87,6 +87,8 @@ nnoremap <CR> i<CR><Esc>
 map <down> 20j
 map <up> 20k
 
+inoremap jk <ESC>
+
 let mapleader=","
 
 " Map CtrlP to leader-p
