@@ -14,6 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
@@ -38,7 +39,7 @@ filetype plugin indent on    " required
 "
 " Brief help
 " :PluginList       - lists configured plugins
-" :PluginIkkkkkkjkjkjjkkkkjjjnstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
@@ -61,6 +62,7 @@ set visualbell
 set noerrorbells
 set title
 autocmd Filetype python setlocal shiftwidth=4 tabstop=4
+autocmd Filetype javascript nnoremap <leader>k Odebugger;<Esc>
 
 set pastetoggle=<F3>
 
@@ -88,6 +90,7 @@ map <down> 20j
 map <up> 20k
 
 inoremap jk <ESC>
+inoremap <ESC> oops
 
 let mapleader=","
 
