@@ -61,7 +61,7 @@ set wildignore=*.swp
 set visualbell
 set noerrorbells
 set title
-autocmd Filetype python setlocal shiftwidth=4 tabstop=4
+autocmd Filetype python setlocal shiftwidth=4 tabstop=4 expandtab
 autocmd Filetype javascript nnoremap <leader>k Odebugger;<Esc>
 
 set pastetoggle=<F3>
@@ -88,9 +88,6 @@ nnoremap <CR> i<CR><Esc>
 
 map <down> 20j
 map <up> 20k
-
-inoremap jk <ESC>
-inoremap <ESC> oops
 
 let mapleader=","
 
