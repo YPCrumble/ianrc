@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>local.job</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>bash</string>
+		<string>/Users/fitvalet/Projects/shreddit/bin/shreddit.sh</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/Users/fitvalet/Projects/shreddit/bin/stderr</string>
+	<key>StandardOutPath</key>
+	<string>/Users/fitvalet/Projects/shreddit/bin/stdout</string>
+	<key>StartInterval</key>
+	<integer>86400</integer>
+	<key>WorkingDirectory</key>
+	<string>/Users/fitvalet/Projects/shreddit/bin</string>
+</dict>
+</plist>
