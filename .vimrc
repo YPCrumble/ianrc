@@ -63,6 +63,7 @@ set noerrorbells
 set title
 autocmd Filetype python setlocal shiftwidth=4 tabstop=4 expandtab
 autocmd Filetype javascript nnoremap <leader>k Odebugger;<Esc>
+autocmd Filetype php nnoremap <leader>k Okpr();<Esc>
 
 set pastetoggle=<F3>
 
