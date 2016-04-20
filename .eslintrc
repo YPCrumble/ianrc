@@ -16,6 +16,7 @@
         "strict": 0,
         "quotes": 0,
         "no-unused-vars": 1,
+        "no-undef": 1,
         "camelcase": 0,
         "no-underscore-dangle": 0,
         "max-len": [1, 80, 4],

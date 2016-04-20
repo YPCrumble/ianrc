@@ -1,6 +1,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+au BufRead,BufNewFile *.test set filetype=php
+
 "sjggkggkk set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -63,7 +65,7 @@ set noerrorbells
 set title
 autocmd Filetype python setlocal shiftwidth=4 tabstop=4 expandtab
 autocmd Filetype javascript nnoremap <leader>k Odebugger;<Esc>
-autocmd Filetype php nnoremap <leader>k Okpr();<Esc>
+autocmd Filetype php nnoremap <leader>k Odpm(get_defined_vars());<Esc>
 
 set pastetoggle=<F3>
 
@@ -101,7 +103,7 @@ nnoremap <leader>u :GundoToggle<CR>
 " CtrlP settings
 set wildignore+=*/bower_components/**
 set wildignore+=*/node_modules/**
-set wildignore+=*/static/**
+set wildignore+=static/**
 set wildignore+=*/*django*/**
 
 " Syntastic settings
@@ -115,6 +117,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ignore_files = ['\.py$']
+let g:syntastic_filetype_map = {".test": "php"}
 
 " ESLint settings for Syntastic
 

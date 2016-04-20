@@ -11,8 +11,9 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 # Aliases to improve usability
 alias youth1="cd ~/Sites/drupal/7/youth1/sites/all/"
 alias youth1s="cd ~/Sites/drupal/7/youth1/"
+alias y1="cd ~/Sites/drupal/7/y1/sites/all/"
+alias y1s="cd ~/Sites/drupal/7/y1/"
 alias pmp="python manage.py"
-alias wo="workon"
 echo "bind -v" >> ~/.editrc
 echo "set editing-mode vi" >> ~/.inputrc
 
@@ -22,3 +23,30 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 set -o vi
+
+# startbitbucket - creates remote bitbucket repo and adds it as git remote to cwd
+function startbitbucket {
+    #!/bin/bash
+		if [ $BITBUCKET_USER ];
+		then
+		  username=$BITBUCKET_USER
+    else
+      echo 'Username?'
+      read username
+    fi
+
+    if [ $BITBUCKET_PASS ]
+    then
+      password=$BITBUCKET_PASS
+    else
+      echo 'Password?'
+      read -s password  # -s flag hides password text
+    fi
+    echo 'Repo name?'
+    read reponame
+
+    curl --user $username:$password https://api.bitbucket.org/1.0/repositories/ --data name=$reponame --data is_private='true'
+    git remote add origin git@bitbucket.org:$username/$reponame.git
+    git push -u origin --all
+    git push -u origin --tags
+}
