@@ -7,6 +7,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+source ~/vimrc/terminus/utils/terminus-completion.bash
 
 # Aliases to improve usability
 alias youth1="cd ~/Sites/drupal/7/youth1/sites/all/"
