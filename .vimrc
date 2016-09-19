@@ -17,6 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
@@ -96,9 +97,6 @@ map <up> 20k
 
 let mapleader=","
 
-" Map CtrlP to leader-p
-nmap <leader>p :CtrlP<cr>
-
 " toggle gundo
 nnoremap <leader>u :GundoToggle<CR>
 
@@ -106,7 +104,7 @@ nnoremap <leader>u :GundoToggle<CR>
 set wildignore+=*/bower_components/**
 set wildignore+=*/node_modules/**
 set wildignore+=static/**
-set wildignore+=*/*django*/**
+set wildignore+=*/django*/**
 
 " Syntastic settings
 set statusline+=%#warningmsg#
@@ -156,13 +154,18 @@ let g:pymode_syntax_all=1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
+"Vim-airline settings
+let g:airline#extensions#tabline#enabled = 1
+"Show tab number rather than number of splits in a tab.
+let g:airline#extensions#tabline#tab_nr_type = 1
+
 "Search settings
 "
 " The Silver Searcher
 " via https://robots.thoughtbot.com/faster-grepping-in-vim
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  " set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
