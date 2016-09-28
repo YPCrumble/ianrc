@@ -8,7 +8,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 export PATH="$HOME/.composer/vendor/bin:$PATH"
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 source ~/vimrc/terminus/utils/terminus-completion.bash
 
 export NVM_DIR="$HOME/.nvm"
@@ -31,6 +31,18 @@ alias youth1s="cd ~/Sites/drupal/7/youth1/"
 alias y1="cd ~/.kalabox/apps/y1/code/sites/all"
 alias y1s="cd ~/.kalabox/apps/y1/code"
 alias pmp="python manage.py"
+
+# fasd setup
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
+# Aliases for fasd
+alias v='f -e vim' # quick opening files with vim
+alias c='fasd_cd -d'
 
 # Bash completion for homebrew/git
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -79,3 +91,8 @@ if hash ag 2>/dev/null; then
   tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null; }
   alias ag=tag
 fi
+
+function dj_secret_key {
+    #!/bin/bash
+    python -c "from django.utils.crypto import get_random_string; chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'; print get_random_string(50, chars)"
+}
