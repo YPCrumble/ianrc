@@ -119,6 +119,12 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_ignore_files = ['\.py$']
 let g:syntastic_filetype_map = {".test": "php"}
 
+" Django settings for Syntastic
+let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
+" Commented out because pylint_django doesn't currently support templates
+"let g:syntastic_htmldjango_checkers = ['python/pylint']
+
+
 " ESLint settings for Syntastic
 
 let g:syntastic_javascript_checkers = ['eslint']

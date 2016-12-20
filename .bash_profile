@@ -1,15 +1,18 @@
 #export PATH=/usr/local/Cellar:$PATH
-export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
 export PATH="/usr/local/bin:$PATH" 
 export PATH="/usr/local/sbin:$PATH" 
 export PATH="/usr/local/share/npm/bin:$PATH"
 eval "$(rbenv init -)"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
+export VIRTUALENV_PYTHON=/usr/local/bin/python
 source /usr/local/bin/virtualenvwrapper.sh
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 source ~/vimrc/terminus/utils/terminus-completion.bash
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
@@ -96,3 +99,10 @@ function dj_secret_key {
     #!/bin/bash
     python -c "from django.utils.crypto import get_random_string; chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'; print get_random_string(50, chars)"
 }
+PHP_AUTOCONF="/usr/local/bin/autoconf"
+source ~/.bash_aliases
+
+eval "$(thefuck --alias)"
+
+# pyenv setup
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
