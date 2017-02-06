@@ -18,11 +18,13 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'klen/python-mode'
+Plugin 'tmhedberg/SimpylFold'
+"Plugin 'klen/python-mode'
 Plugin 'mattn/emmet-vim'
 Plugin 'ervandew/supertab'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -67,6 +69,9 @@ set title
 autocmd Filetype python setlocal shiftwidth=4 tabstop=4 expandtab
 autocmd Filetype javascript nnoremap <leader>k Odebugger;<Esc>
 autocmd Filetype php nnoremap <leader>k Odpm(get_defined_vars());<Esc>
+autocmd Filetype python nnoremap <leader>k Oimport pdb; pdb.set_trace()<Esc>
+
+autocmd BufWritePre *.py :%s/\s\+$//e
 
 set pastetoggle=<F3>
 
@@ -100,11 +105,18 @@ let mapleader=","
 " toggle gundo
 nnoremap <leader>u :GundoToggle<CR>
 
+" SimpylFold settings
+let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_fold_import = 0
+
 " CtrlP settings
 set wildignore+=*/bower_components/**
 set wildignore+=*/node_modules/**
 set wildignore+=static/**
 set wildignore+=*/django*/**
+
+" Supertab settings
+let g:SuperTabRetainCompletionDuration = "session"
 
 " Syntastic settings
 set statusline+=%#warningmsg#
@@ -116,8 +128,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_ignore_files = ['\.py$']
 let g:syntastic_filetype_map = {".test": "php"}
+
+" Python settings for Syntastic
+
+let g:syntastic_python_checkers=["flake8", "pep8", "pycodestyle", "pyflakes", "pylint"]
 
 " Django settings for Syntastic
 let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
@@ -129,6 +144,20 @@ let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+
+" HTML settings to silence bad tidy errors
+"let g:syntastic_html_tidy_ignore_errors = [
+    "\  'plain text isn''t allowed in <head> elements',
+    "\  '<base> escaping malformed URI reference',
+    "\  'discarding unexpected <body>',
+    "\  '<script> escaping malformed URI reference',
+    "\  '</head> isn''t allowed in <body> elements',
+    "\  '<meta> isn''t allowed in <body> elements',
+    "\  '<title> isn''t allowed in <body> elements',
+    "\  '<link> isn''t allowed in <body> elements',
+    "\  'content occurs after end of body'
+    "\ ]
+
 " End Syntastic settings
 
 " CtrlP settings
@@ -141,24 +170,24 @@ map <F2> :NERDTreeToggle<CR>
 let g:rehash256 = 1
 colorscheme Molokai
 
-" Python-mode plugin settings
+"" Python-mode plugin settings
 
-let g:pymode_rope = 0
+"let g:pymode_rope = 0
 
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>k'
+"" Enable breakpoints plugin
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_bind = '<leader>k'
 
-"Linting
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+""Linting
+"let g:pymode_lint = 1
+"let g:pymode_lint_checker = "pyflakes,pep8"
 
-let g:pymode_lint_write = 1
+"let g:pymode_lint_write = 1
 
-let g:pymode_syntax=1
-let g:pymode_syntax_all=1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"let g:pymode_syntax=1
+"let g:pymode_syntax_all=1
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 "Vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
