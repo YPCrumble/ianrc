@@ -24,7 +24,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tmhedberg/SimpylFold'
-"Plugin 'klen/python-mode'
 Plugin 'mattn/emmet-vim'
 Plugin 'ervandew/supertab'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -93,7 +92,7 @@ nnoremap k gk
   "use tab in normal mode to tab things.
 nnoremap <Tab> I<Tab><Esc>
 
-map <F4> :lclose<cr>
+map <F4> :SyntasticReset<cr>
 
 nnoremap <CR> i<CR><Esc>
 
@@ -133,6 +132,7 @@ let g:syntastic_filetype_map = {".test": "php"}
 " Python settings for Syntastic
 
 let g:syntastic_python_checkers=["flake8", "pep8", "pycodestyle", "pyflakes", "pylint"]
+let g:syntastic_python_checker_args='--ignore=E116'
 
 " Django settings for Syntastic
 let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
@@ -169,25 +169,6 @@ map <F2> :NERDTreeToggle<CR>
 " Settings for molokai theme
 let g:rehash256 = 1
 colorscheme Molokai
-
-"" Python-mode plugin settings
-
-"let g:pymode_rope = 0
-
-"" Enable breakpoints plugin
-"let g:pymode_breakpoint = 1
-"let g:pymode_breakpoint_bind = '<leader>k'
-
-""Linting
-"let g:pymode_lint = 1
-"let g:pymode_lint_checker = "pyflakes,pep8"
-
-"let g:pymode_lint_write = 1
-
-"let g:pymode_syntax=1
-"let g:pymode_syntax_all=1
-"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-"let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 "Vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
