@@ -34,6 +34,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Raimondi/delimitMate'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'bling/vim-airline'
+Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -189,3 +190,10 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" Ack.vim settings
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+let g:ack_autoclose = 1
+let g:ackpreview = 1

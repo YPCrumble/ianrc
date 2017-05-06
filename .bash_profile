@@ -106,3 +106,12 @@ eval "$(thefuck --alias)"
 
 # pyenv setup
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+function agd {
+  #!/bin/bash
+  ag -l "$1" | xargs sed -i '' -e "/$1/d";
+}
+function ags {
+  #!/bin/bash
+  ag -l "$1" | xargs sed -i '' -e "s/$1/$2/g";
+}
