@@ -22,7 +22,6 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'mattn/emmet-vim'
 Plugin 'ervandew/supertab'
@@ -35,6 +34,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
+Plugin 'amadeus/vim-mjml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -113,7 +113,7 @@ let g:SimpylFold_fold_import = 0
 set wildignore+=*/bower_components/**
 set wildignore+=*/node_modules/**
 set wildignore+=static/**
-set wildignore+=*/django*/**
+"set wildignore+=*/django*/**
 
 " Supertab settings
 let g:SuperTabRetainCompletionDuration = "session"
@@ -132,7 +132,7 @@ let g:syntastic_filetype_map = {".test": "php"}
 
 " Python settings for Syntastic
 
-let g:syntastic_python_checkers=["flake8", "pep8", "pycodestyle", "pyflakes", "pylint"]
+let g:syntastic_python_checkers=["flake8", "pyflakes", "pylint", "pep8", "pycodestyle", "python"]
 let g:syntastic_python_checker_args='--ignore=E116'
 
 " Django settings for Syntastic
@@ -160,6 +160,9 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
     "\ ]
 
 " End Syntastic settings
+
+" Virtualenv settings
+let g:virtualenv_auto_activate = 1
 
 " CtrlP settings
 let g:ctrlp_map = '<c-p>'

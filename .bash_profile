@@ -29,10 +29,11 @@ export PATH=$PATH:$GOROOT/bin
 # Aliases to improve usability
 alias youth1="cd ~/Sites/drupal/7/youth1/sites/all/"
 alias youth1s="cd ~/Sites/drupal/7/youth1/"
-alias y1="cd ~/.kalabox/apps/y1/code/sites/all"
-alias y1s="cd ~/.kalabox/apps/y1/code"
+alias y1="cd ~/Kalabox/y1/code/sites/all"
+alias y1s="cd ~/Kalabox/y1/code"
 alias ads="cd ~/Projects/ansible-django-stack/"
 alias pmp="python manage.py"
+alias pmpr="python manage.py runserver"
 
 # fasd setup
 fasd_cache="$HOME/.fasd-init-bash"
