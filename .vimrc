@@ -35,6 +35,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
 Plugin 'amadeus/vim-mjml'
+"Plugin 'vitalk/vim-lesscss'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -200,3 +201,7 @@ if executable('ag')
 endif
 let g:ack_autoclose = 1
 let g:ackpreview = 1
+
+" Lessc settings
+" save css files to separate css folder (relative to original less location)
+let g:lesscss_save_to = '../css/'

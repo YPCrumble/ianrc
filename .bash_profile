@@ -2,18 +2,19 @@
 export PATH="/usr/local/bin:$PATH" 
 export PATH="/usr/local/sbin:$PATH" 
 export PATH="/usr/local/share/npm/bin:$PATH"
-eval "$(rbenv init -)"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+#eval "$(rbenv init -)"
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENV_PYTHON=/usr/local/bin/python
+export PROJECT_HOME=$HOME/Projects
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/opt/php55/bin:$PATH"
-source ~/vimrc/terminus/utils/terminus-completion.bash
+source ~/ianrc/terminus/utils/terminus-completion.bash
 
 export PYENV_ROOT=/usr/local/var/pyenv
 export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-source /usr/local/bin/virtualenvwrapper.sh
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYENV="true"
+pyenv virtualenvwrapper
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
@@ -101,12 +102,8 @@ function dj_secret_key {
     python -c "from django.utils.crypto import get_random_string; chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'; print get_random_string(50, chars)"
 }
 PHP_AUTOCONF="/usr/local/bin/autoconf"
-source ~/.bash_aliases
 
 eval "$(thefuck --alias)"
-
-# pyenv setup
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 function agd {
   #!/bin/bash
@@ -116,3 +113,5 @@ function ags {
   #!/bin/bash
   ag -l "$1" | xargs sed -i '' -e "s/$1/$2/g";
 }
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

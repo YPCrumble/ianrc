@@ -2,9 +2,8 @@ alfred
 calibre
 flux
 flycut
-karabiner
-karabiner-elements
 on-the-job
 postman
 sequel-pro
 slack
+skype
